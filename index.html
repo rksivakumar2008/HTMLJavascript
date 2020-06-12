@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Task Timeline</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body style="background-color:yellow;">
+    <h1 style="text-align:center;">My TODO App</h1><br>
+    <div>
+        <p id="itemCount" style="text-align: center; width:49%; display: inline-block;">Item Count: </p>
+        <p id="uncheckedCount" style="text-align: center; width:50%;  display: inline-block;">Unchecked Count: </p>
+    </div>
+    <br><br>
+
+    <div style="display:flex; justify-content:center; width:100%; text-align:center;">
+        <div>
+            <input type="text" id="itemName" name="itemName" placeholder="Type new item..." maxlength="20" size="20">
+        </div>
+        &emsp;
+        <div>
+            <input type="submit" id="submitBtn" name="submitBtn" value="New TODO" onclick="submitBtn_click()">
+        </div>
+    </div>
+
+    <br><br><hr>
+
+    <ul id="itemList">
+    </ul>
+
+    <script src="app.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+</body>
+
+</html>

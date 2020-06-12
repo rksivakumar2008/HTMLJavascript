@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Quix Page</title>
+  <link rel="stylesheet" href="Quizmain.css">
+</head>
+
+<body style="background-color:white;" onload=accessJSONFile();>
+  <header>
+    <h2>Quiz</h2>
+  </header>
+
+  <section>
+    <nav></nav>
+    <article>
+      <div class="myDiv" id="divMain">
+        <div>
+          <div style="width:100%;">
+            <p id="question" style="text-align: left; width:100%; display: inline-block; font-size: 25px; padding:20px;  margin: 0px; ">Item Count:Item Count:Item Count:Item Count:Item Count:Item Count:  </p>
+          </div>
+
+          <div style="width:100%;">
+            <div> 
+              <div style="width:49%;  display: inline-block; padding:20px; ">
+                <input type="radio" name="options" id="optionA" value="A" style="float: left; margin-right: 9px;" onclick="options_click(this.value)">
+                <label for="optionA" id="optionAL" style="float: left;">Option 1</label>
+              </div>
+              <div style="width:50%;  display: inline-block; padding:20px; ">
+                <input type="radio" name="options" id="optionB" value="B" style="float: left; margin-right: 9px;" onclick="options_click(this.value)">
+                <label for="optionB" id="optionBL" style="float: left;">Option 2</label>
+              </div>
+            </div>
+            <div> 
+              <div style="width:49%;  display: inline-block; padding:20px; ">
+                <input type="radio" name="options" id="optionC" value="C" style="float: left; margin-right: 9px;" onclick="options_click(this.value)">
+                <label for="optionC" id="optionCL" style="float: left;">Option 3</label>
+              </div>
+              <div style="width:50%;  display: inline-block; padding:20px; ">
+                <input type="radio" name="options" id="optionD" value="D" style="float: left; margin-right: 9px;" onclick="options_click(this.value)">
+                <label for="optionD" id="optionDL" style="float: left;">Option 4</label>
+              </div>
+            </div>     
+          </div>
+        </div>
+
+        <br><br>
+        <div id="buttondiv" style="display:flex; justify-content:center; width:100%; text-align:center;">
+          <div>
+            <input class="myButton" type="submit" id="previousBtn" name="previousBtn" value="Previous" onclick="previousBtn_click()">
+          </div>&emsp;
+          <div>
+            <input class="myButton" type="submit" id="nextBtn" name="nextBtn" value="Next" onclick="nextBtn_click()">
+          </div>
+        </div>
+      </div>
+
+      <div class="myDiv" id="divFinalScore" style="display: none;">
+        <div style="width:100%;">
+          <p id="scoreDisplay" style="text-align: left; width:100%; display: inline-block; font-size: 35px; padding:20px;  margin: 0px; ">final score</p>
+        </div>
+      </div>
+
+    </article>
+    <nav></nav>
+  </section>
+
+  <footer></footer>
+
+  <!-- <script type="text/javascript" src="QuizQuestions.json"></script> -->
+  <script src="Quizapp.js"></script>
+  <noscript>You need to enable JavaScript to view the full site.</noscript>
+
+</body>
+
+</html>
