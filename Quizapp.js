@@ -8,7 +8,7 @@ var answers = [' '];
 function accessJSONFile()
 {
     //let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-    let requestURL = 'http://127.0.0.1:5500/QuizQuestions.json';
+    let requestURL = 'http://127.0.0.1:5500/Data/QuizQuestions.json';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
 

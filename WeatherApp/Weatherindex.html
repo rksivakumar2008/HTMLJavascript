@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Page</title>
+    <link rel="stylesheet" href="Weathermain.css">
+</head>
+
+<body>
+
+    <h2 style="text-align: center;">Responsive Form</h2>
+
+    <div class="container">
+        <form >
+            <div class="row">
+                <div class="col-25">
+                    <label style="text-align: right; width: 100%;" for="fname">City Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="cityName" name="firstname" placeholder="City name..">
+                </div>
+            </div><br><br>
+            <div class="row divCenter">
+                <input type="button" value="Submit" onclick="callWeatherAPI()">
+            </div><br>
+        </form>
+    </div>
+
+    <div class="container" id='outputDisp'">
+        <hr>
+        <h2 style=" text-align: center; color: rgb(23, 20, 204);" id='cityNameTitle'>Weather Info</h2>
+
+        <div>
+            <p class="detailRow detailRowLeft" id="temp">Temperature :</p>
+            <p class="detailRow detailRowRight" id="tempValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="tempMax">Maximum Temperature :</p>
+            <p class="detailRow detailRowRight" id="tempMaxValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="tempMin">Minimum Temperature :</p>
+            <p class="detailRow detailRowRight" id="tempMinValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="humidity">Humidity :</p>
+            <p class="detailRow detailRowRight" id="humidityValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="pressure">Pressure :</p>
+            <p class="detailRow detailRowRight" id="pressureValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="feelsLike">Feels Like :</p>
+            <p class="detailRow detailRowRight" id="feelsLikeValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="latitude">Latitude :</p>
+            <p class="detailRow detailRowRight" id="latitudeValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="longitude">Longitude :</p>
+            <p class="detailRow detailRowRight" id="longitudeValue">0</p>
+        </div>
+    </div>
+
+    <script src="Weatherapp.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+</body>
+
+</html>
