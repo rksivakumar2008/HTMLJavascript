@@ -9,27 +9,23 @@
 
 <body>
 
-    <h2 style="text-align: center;">Responsive Form</h2>
+    <!--Make sure the form has the autocomplete function switched off:-->
+    <form class="container" autocomplete="off">
+        <h2 style=" text-align: center; color: rgb(23, 20, 204);">Weather Info</h2><br>
+        <div class="divCenter">
+            <label style="font-size: 20px;" for="cityName">City Name : </label>
+            <div class="autocomplete" style="width:300px;">
+                <input id="cityName" type="text" name="cityName" placeholder="Type city name...">
+            </div>
+            <input type="button" value="Submit" onclick="callWeatherAPI()">
+        </div>
+    </form>
 
-    <div class="container">
-        <form >
-            <div class="row">
-                <div class="col-25">
-                    <label style="text-align: right; width: 100%;" for="fname">City Name</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="cityName" name="firstname" placeholder="City name..">
-                </div>
-            </div><br><br>
-            <div class="row divCenter">
-                <input type="button" value="Submit" onclick="callWeatherAPI()">
-            </div><br>
-        </form>
-    </div>
 
-    <div class="container" id='outputDisp'">
+    <div class="container" id="outputDisp">
+        <br><br>
         <hr>
-        <h2 style=" text-align: center; color: rgb(23, 20, 204);" id='cityNameTitle'>Weather Info</h2>
+        <h2 style=" text-align: center; color: rgb(23, 20, 204);" id="cityNameTitle">Weather Info</h2>
 
         <div>
             <p class="detailRow detailRowLeft" id="temp">Temperature :</p>
