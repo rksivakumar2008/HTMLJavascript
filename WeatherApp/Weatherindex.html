@@ -11,7 +11,7 @@
 
     <!--Make sure the form has the autocomplete function switched off:-->
     <form class="container" autocomplete="off">
-        <h2 style=" text-align: center; color: rgb(23, 20, 204);">Weather Info</h2><br>
+        <h2 style=" text-align: center; color: rgb(23, 20, 204);">Weather Info</h2><br><br><br>
         <div class="divCenter">
             <label style="font-size: 20px;" for="cityName">City Name : </label>
             <div class="autocomplete" style="width:300px;">
@@ -26,38 +26,48 @@
         <br><br>
         <hr>
         <h2 style=" text-align: center; color: rgb(23, 20, 204);" id="cityNameTitle">Weather Info</h2>
+        <div>
+            <p class="detailRow detailRowLeft" id="dateYd">Date :</p>
+            <p class="detailRow detailRowRight" id="dateYdValue">Y'day</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="tempYd">Temperature :</p>
+            <p class="detailRow detailRowRight" id="tempYdValue">0</p>
+        </div>
+        <div>
+            <p class="detailRow detailRowLeft" id="descriptionYd">Description :</p>
+            <img id="myImgYd" style="vertical-align: middle;" src="http://openweathermap.org/img/wn/01d@2x.png" alt="The Pulpit Rock" width="41" height="41">
+            <p class="detailRow detailRowRight" id="descriptionYdValue"></p>
+        </div>
 
+        <hr>
+        <div>
+            <p class="detailRow detailRowLeft" id="date">Date :</p>
+            <p class="detailRow detailRowRight" id="dateValue"></p>
+        </div>
         <div>
             <p class="detailRow detailRowLeft" id="temp">Temperature :</p>
             <p class="detailRow detailRowRight" id="tempValue">0</p>
         </div>
         <div>
-            <p class="detailRow detailRowLeft" id="tempMax">Maximum Temperature :</p>
-            <p class="detailRow detailRowRight" id="tempMaxValue">0</p>
+            <p class="detailRow detailRowLeft" id="description">Description :</p>
+            <img id="myImg" style="vertical-align: middle;" src="http://openweathermap.org/img/wn/01d@2x.png" alt="The Pulpit Rock" width="41" height="41">
+            <p class="detailRow detailRowRight" id="descriptionValue"></p>
+        </div>
+
+        <hr>
+        <div>
+            <p class="detailRow detailRowLeft" id="dateTw">Date :</p>
+            <p class="detailRow detailRowRight" id="dateTwValue">Tomorrow</p>
         </div>
         <div>
-            <p class="detailRow detailRowLeft" id="tempMin">Minimum Temperature :</p>
-            <p class="detailRow detailRowRight" id="tempMinValue">0</p>
+            <p class="detailRow detailRowLeft" id="tempTw">Temperature :</p>
+            <p class="detailRow detailRowRight" id="tempTwValue">0</p>
         </div>
         <div>
-            <p class="detailRow detailRowLeft" id="humidity">Humidity :</p>
-            <p class="detailRow detailRowRight" id="humidityValue">0</p>
-        </div>
-        <div>
-            <p class="detailRow detailRowLeft" id="pressure">Pressure :</p>
-            <p class="detailRow detailRowRight" id="pressureValue">0</p>
-        </div>
-        <div>
-            <p class="detailRow detailRowLeft" id="feelsLike">Feels Like :</p>
-            <p class="detailRow detailRowRight" id="feelsLikeValue">0</p>
-        </div>
-        <div>
-            <p class="detailRow detailRowLeft" id="latitude">Latitude :</p>
-            <p class="detailRow detailRowRight" id="latitudeValue">0</p>
-        </div>
-        <div>
-            <p class="detailRow detailRowLeft" id="longitude">Longitude :</p>
-            <p class="detailRow detailRowRight" id="longitudeValue">0</p>
+            <p class="detailRow detailRowLeft" id="descriptionTw">Description :</p>
+            <img id="myImgTw" style="vertical-align: middle;" src="http://openweathermap.org/img/wn/01d@2x.png" alt="The Pulpit Rock" width="41" height="41">
+            <p class="detailRow detailRowRight" id="descriptionTwValue"></p>
         </div>
     </div>
 

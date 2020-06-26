@@ -1,63 +1,133 @@
-'use strick'
-var data;
+'use strict'
+
+var countries = ["AGARTALA", "AGRA", "AHMEDABAD", "AIZWAL", "AJMER", "ALLAHABAD", "ALLEPPEY", "ALIBAUG", "ALMORA", "ALSISAR", "ALWAR", "AMBALA", "AMLA", "AMRITSAR", "ANAND", "ANKLESHWAR", "ASHTAMUDI", "AULI", "AURANGABAD", "BADDI", "BADRINATH", "BALASINOR", "BALRAMPUR", "BAMBORA", "BANDHAVGARH", "BANDIPUR", "BANGALORE", "BARBIL", "BAREILLY", "BEHROR", "BELGAUM", "BERHAMPUR", "BETALGHAT", "BHARATPUR", "BHANDARDARA", "BHARUCH", "BHAVANGADH", "BHAVNAGAR", "BHILAI", "BHIMTAL", "BHOPAL", "BHUBANESHWAR", "BHUJ", "BIKANER", "BINSAR", "BODHGAYA", "BUNDI", "CALICUT", "CANANNORE", "CHAIL", "CHAMBA", "CHANDIGARH", "CHENNAI", "CHIKMAGALUR", "CHIPLUN", "CHITRAKOOT", "CHITTORGARH", "COIMBATORE", "COONOOR", "COORG", "CORBETT NATIONAL PARK", "CUTTACK", "DABHOSA", "DALHOUSIE", "DAMAN", "DANDELI", "DAPOLI", "DARJEELING", "DAUSA", "DEHRADUN", "DHARAMSHALA", "DIBRUGARH", "DIGHA", "DIU", "DIVE AGAR", "DOOARS", "DURGAPUR", "DURSHET", "DWARKA", "FARIDABAD", "FIROZABAD", "GANGOTRI", "GANGTOK", "GANAPATIPULE", "GANDHIDHAM", "GANDHINAGAR", "GARHMUKTESHWAR", "GARHWAL", "GAYA", "GHAZIABAD", "GOA", "GOKHARNA", "GONDAL", "GORAKHPUR", "GREATER NOIDA", "GULMARG", "GURGAON", "GURUVAYOOR", "GUWAHATI", "GWALIOR", "HALEBID", "HAMPI", "HANSI", "HARIDWAR", "HASSAN", "HOSPET", "HOSUR", "HUBLI", "HYDERABAD", "IDUKKI", "IGATPURI", "IMPHAL", "INDORE", "JABALPUR", "JAIPUR", "JAISALMER", "JALANDHAR", "JALGAON", "JAMBUGODHA", "JAMMU", "JAMNAGAR", "JAMSHEDPUR", "JAWHAR", "JHANSI", "JODHPUR", "JOJAWAR", "JORHAT", "JUNAGADH", "KABINI", "KALIMPONG", "KANATAL", "KANCHIPURAM", "KANHA", "KANPUR", "KANYAKUMARI", "KARGIL", "KARJAT", "KARNAL", "KARUR", "KARWAR", "KASARGOD", "KASAULI", "KASHIPUR", "KASHID", "KATRA", "KAUSANI", "KAZA", "KAZIRANGA", "KEDARNATH", "KHAJJIAR", "KHAJURAHO", "KHANDALA", "KHIMSAR", "KOCHIN", "KODAIKANAL", "KOLHAPUR", "KOLKATA", "KOLLAM", "KOTA", "KOTAGIRI", "KOTTAYAM", "KOVALAM", "KUFRI", "KUMBALGARH", "KULLU", "KUMARAKOM", "KUMBAKONAM", "KUMILY", "KURSEONG", "KUSHINAGAR", "LACHUNG", "LEH", "LAKSHADWEEP", "LONAVALA", "LOTHAL", "LUCKNOW", "LUDHIANA", "LUMBINI", "MADURAI", "MAHABALESHWAR", "MAHABALIPURAM", "MALAPPURAM", "MALPE", "MALSHEJ GHAT", "MALVAN", "MANALI", "MANDAVI", "MANDAWA", "MANESAR", "MARARRI", "MANDORMONI", "MANGALORE", "MANMAD", "MARCHULA", "MATHERAN", "MATHURA", "MCLEODGANJ", "MOHALI", "MOUNT ABU", "MORADABAD", "MORBI", "MUKTESHWAR", "MUMBAI", "MUNDRA", "MUNNAR", "MURUD JANJIRA", "MUSSOORIE", "MYSORE", "NADUKANI", "NAGAPATTINAM", "NAGARHOLE", "NAGAUR FORT", "NAGOTHANE", "NAGPUR", "NAHAN", "NAINITAL", "NALDHERA", "NANDED", "NAPNE", "NASIK", "NAVI MUMBAI", "NERAL", "NEW DELHI", "NILGIRI", "NOIDA", "OOTY", "ORCHHA", "OSIAN", "PACHMARHI", "PALAMPUR", "PALANPUR", "PALI", "PAHALGAM", "PALITANA", "PALLAKAD", "PANCHGANI", "PANCHKULA", "PANNA", "PANHALA", "PANVEL", "PANTNAGAR", "PARWANOO", "PATIALA", "PATHANKOT", "PATNA", "PATNITOP", "PELLING", "PENCH", "PHAGWARA", "PHALODI", "PINJORE", "PONDICHERRY", "POOVAR", "PORBANDAR", "PORT BLAIR", "POSHINA", "PRAGPUR", "PUNE", "PURI", "PUSKHAR", "PUTTAPARTHI", "RAI BAREILLY", "RAICHAK", "RAIPUR", "RAJASTHAN", "RAJGIR", "RAJKOT", "RAJPIPLA", "RAJSAMAND", "RAJAHMUNDRY", "RAMESHWARAM", "RAM NAGAR", "RAMGARH", "RANAKPUR", "RANCHI", "RANIKHET", "RANNY", "RANTHAMBORE", "RATNAGIRI", "RAVANGLA", "RISHIKESH", "RISHYAP", "ROHETGARH", "ROURKELA", "SAJAN", "SALEM", "SAPUTARA", "SASAN GIR", "SATTAL", "SAWAI MADHOPUR", "SAWANTWADI", "SECUNDERABAD", "SHILLONG", "SHIMLA", "SHIMLIPAL", "SHIRDI", "SHARAVANBELGOLA", "SHIVANASAMUDRA", "SIANA", "SILIGURI", "SILVASSA", "SIVAGANGA DISTRICT", "SOLAN", "SONAULI", "SRINAGAR", "SUNDERBAN", "SURAT", "TANJORE", "TAPOLA", "TARAPITH", "THANE", "THEKKADY", "THIRVANNAMALAI", "THIRUVANANTHAPURAM", "TIRUCHIRAPALLI", "TIRUPUR", "TIRUPATI", "THRISSUR", "UDAIPUR", "UDHAMPUR", "UDUPI", "UJJAIN", "UTTARKASHI", "VADODARA", "VAGAMON", "VARKALA", "VAPI", "VARANASI", "VELANKANNI", "VELLORE", "VERAVAL", "VIJAYAWADA", "VIKRAMGADH", "VISHAKAPATNAM", "WAYANAD", "WANKANER", "YAMUNOTRI", "YERCAUD", "YUKSOM"];
+var responseData;
+var dispValues = [['','','',''],['','','',''],['','','','']];
+var cityLat, cityLon;
+var iconURL = "http://openweathermap.org/img/wn/"
+var iconFileName = "01d";
+var iconFileNameExt = "@2x.png";
 
 function callWeatherAPI() {
-    var domain = 'http://api.openweathermap.org/data/2.5/weather?q=';
-    var APIID = '&units=metric&APPID=9936c568bdbe8c69d5175e0469c66f49';
-    //var url = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9936c568bdbe8c69d5175e0469c66f49';
+    //var urlCurrent = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9936c568bdbe8c69d5175e0469c66f49'; // for current day
+    //var urlDaily = 'https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=9936c568bdbe8c69d5175e0469c66f49';
+    //var urlHist = 'http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=60.99&lon=30.9&dt=1592996400&appid=9936c568bdbe8c69d5175e0469c66f49';
 
-    var cityNameValue = document.getElementById('cityName').value;
-    if (cityNameValue.trim() == '') {
+    var domainCurrent = 'http://api.openweathermap.org/data/2.5/weather?q=';
+    var APIID = '&units=metric&APPID=9936c568bdbe8c69d5175e0469c66f49';
+
+    var cityNameValue = document.getElementById('cityName').value.trim().toUpperCase();
+    if (cityNameValue == '') {
         alert('City can\'t be empty');
         document.getElementById('cityName').focus();
         return;
     }
 
-    var url = domain + cityNameValue.trim() + APIID;
-    // Create a request variable and assign a new XMLHttpRequest object to it.
-    var request = new XMLHttpRequest();
-    // Open a new connection, using the GET request on the URL endpoint
-    request.open('GET', url, true);
+    var urlMain = domainCurrent + cityNameValue + APIID;
+    customizedHttpCall(urlMain, 1);         // Today
+    cityLat = responseData.coord.lat;
+    cityLon = responseData.coord.lon;
+    var ydayUnixTimestamp = responseData.dt - 86400;    // seconds equal to 1 day is subtracted to get y'day date
 
-    request.onload = function () {
-        // Begin accessing JSON data here
-        data = JSON.parse(this.response)
-        if (request.status >= 200 && request.status < 400) {
-            document.getElementById('cityNameTitle').innerHTML = cityNameValue.trim();
-            document.getElementById('tempValue').innerHTML = data.main.temp;
-            document.getElementById('tempMaxValue').innerHTML = data.main.temp_max;
-            document.getElementById('tempMinValue').innerHTML = data.main.temp_min;
-            document.getElementById('humidityValue').innerHTML = data.main.humidity;
-            document.getElementById('pressureValue').innerHTML = data.main.pressure;
-            document.getElementById('feelsLikeValue').innerHTML = data.main.feels_like;
-            document.getElementById('latitudeValue').innerHTML = data.coord.lat;
-            document.getElementById('longitudeValue').innerHTML = data.coord.lon;
-            document.getElementById('cityName').value = '';
-        } else {
-            console.log('error');
-            alert('Error');
-        }
-    }
-    // Send request
-    request.send();
+    urlMain = 'http://api.openweathermap.org/data/2.5/onecall/timemachine?lat='; 
+    urlMain = urlMain + cityLat + '&lon=' + cityLon + '&dt=' + ydayUnixTimestamp + APIID;
+    customizedHttpCall(urlMain, 0);         // Yesterday
+
+    urlMain = 'https://api.openweathermap.org/data/2.5/onecall?lat=';
+    urlMain = urlMain + cityLat + '&lon=' + cityLon + '&exclude=current,minutely,hourly' + APIID;
+    customizedHttpCall(urlMain, 2);         // Tomorrow
+
+    displayElements();
+    document.getElementById('cityNameTitle').innerHTML = cityNameValue;
+    document.getElementById('cityName').value = '';
+    addNewCityToArray (cityNameValue);
 }
 
+function displayElements() {
+    document.getElementById('dateYdValue').innerHTML = dispValues[0][0];
+    document.getElementById('tempYdValue').innerHTML = dispValues[0][1] + ' °C';
+    document.getElementById('descriptionYdValue').innerHTML = dispValues[0][2] + ' ';
+    iconFileName = dispValues[0][3];
+    document.getElementById('myImgYd').src = iconURL + iconFileName + iconFileNameExt;
 
+    document.getElementById('dateValue').innerHTML = dispValues[1][0];
+    document.getElementById('tempValue').innerHTML = dispValues[1][1] + ' °C';
+    document.getElementById('descriptionValue').innerHTML = dispValues[1][2] + ' ';
+    iconFileName = dispValues[1][3];
+    document.getElementById('myImg').src = iconURL + iconFileName + iconFileNameExt;
+
+    document.getElementById('dateTwValue').innerHTML = dispValues[2][0];
+    document.getElementById('tempTwValue').innerHTML = dispValues[2][1] + ' °C';
+    document.getElementById('descriptionTwValue').innerHTML = dispValues[2][2] + ' ';
+    iconFileName = dispValues[2][3];
+    document.getElementById('myImgTw').src = iconURL + iconFileName + iconFileNameExt;
+}
+
+function customizedHttpCall(urlPassed, arrIndex) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            responseData = JSON.parse(this.response)
+            if (arrIndex==0){
+                dispValues[0][0] = convertUTCtoIST(responseData.current.dt);
+                dispValues[0][1] = responseData.current.temp.toString();
+                dispValues[0][2] = responseData.current.weather[0].description;
+                dispValues[0][3] = responseData.current.weather[0].icon;
+            }
+            if (arrIndex==1){
+                dispValues[1][0] = convertUTCtoIST(responseData.dt);
+                dispValues[1][1] = responseData.main.temp.toString();
+                dispValues[1][2] = responseData.weather[0].description;
+                dispValues[1][3] = responseData.weather[0].icon;
+            }
+            if (arrIndex==2){
+                dispValues[2][0] = convertUTCtoIST(responseData.daily[1].dt);
+                dispValues[2][1] = responseData.daily[1].temp.day.toString();
+                dispValues[2][2] = responseData.daily[1].weather[0].description;
+                dispValues[2][3] = responseData.daily[1].weather[0].icon;
+            }
+        } else if (this.readyState == 4 && this.status == 404) {
+            alert('Error occurred / City not found')
+        }
+    }
+    xhttp.open("GET", urlPassed, false);    // false - synchronous call
+    xhttp.send();
+}
+
+function addNewCityToArray(newCity){
+    var newCityFlag = true;
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i] == newCity) {
+            newCityFlag = false;
+            break;
+        }
+    }
+    if (newCityFlag == true) {
+        countries.push(newCity);
+    }
+}
+
+function convertUTCtoIST(dateUTC) {
+    var a = new Date(dateUTC * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var fullDate = date + ' ' + month + ' ' + year;     //+ ' ' + hour + ':' + min + ':' + sec
+    return fullDate;
+}
 
 // Auto Complete - start
-
 function autocomplete(inp, arr) {
-    /*the autocomplete function takes two arguments,
-    the text field element and an array of possible autocompleted values:*/
     var currentFocus;
-    /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
-        /*close any already open lists of autocompleted values*/
         closeAllLists();
         if (!val) { return false; }
         currentFocus = -1;
-        /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
@@ -142,13 +212,6 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-
-/*An array containing all the country names in the world:*/
-//var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
-
-var countries = ["AGARTALA", "AGRA", "AHMEDABAD", "AIZWAL", "AJMER", "ALLAHABAD", "ALLEPPEY", "ALIBAUG", "ALMORA", "ALSISAR", "ALWAR", "AMBALA", "AMLA", "AMRITSAR", "ANAND", "ANKLESHWAR", "ASHTAMUDI", "AULI", "AURANGABAD", "BADDI", "BADRINATH", "BALASINOR", "BALRAMPUR", "BAMBORA", "BANDHAVGARH", "BANDIPUR", "BANGALORE", "BARBIL", "BAREILLY", "BEHROR", "BELGAUM", "BERHAMPUR", "BETALGHAT", "BHARATPUR", "BHANDARDARA", "BHARUCH", "BHAVANGADH", "BHAVNAGAR", "BHILAI", "BHIMTAL", "BHOPAL", "BHUBANESHWAR", "BHUJ", "BIKANER", "BINSAR", "BODHGAYA", "BUNDI", "CALICUT", "CANANNORE", "CHAIL", "CHAMBA", "CHANDIGARH", "CHENNAI", "CHIKMAGALUR", "CHIPLUN", "CHITRAKOOT", "CHITTORGARH", "COIMBATORE", "COONOOR", "COORG", "CORBETT NATIONAL PARK", "CUTTACK", "DABHOSA", "DALHOUSIE", "DAMAN", "DANDELI", "DAPOLI", "DARJEELING", "DAUSA", "DEHRADUN", "DHARAMSHALA", "DIBRUGARH", "DIGHA", "DIU", "DIVE AGAR", "DOOARS", "DURGAPUR", "DURSHET", "DWARKA", "FARIDABAD", "FIROZABAD", "GANGOTRI", "GANGTOK", "GANAPATIPULE", "GANDHIDHAM", "GANDHINAGAR", "GARHMUKTESHWAR", "GARHWAL", "GAYA", "GHAZIABAD", "GOA", "GOKHARNA", "GONDAL", "GORAKHPUR", "GREATER NOIDA", "GULMARG", "GURGAON", "GURUVAYOOR", "GUWAHATI", "GWALIOR", "HALEBID", "HAMPI", "HANSI", "HARIDWAR", "HASSAN", "HOSPET", "HOSUR", "HUBLI", "HYDERABAD", "IDUKKI", "IGATPURI", "IMPHAL", "INDORE", "JABALPUR", "JAIPUR", "JAISALMER", "JALANDHAR", "JALGAON", "JAMBUGODHA", "JAMMU", "JAMNAGAR", "JAMSHEDPUR", "JAWHAR", "JHANSI", "JODHPUR", "JOJAWAR", "JORHAT", "JUNAGADH", "KABINI", "KALIMPONG", "KANATAL", "KANCHIPURAM", "KANHA", "KANPUR", "KANYAKUMARI", "KARGIL", "KARJAT", "KARNAL", "KARUR", "KARWAR", "KASARGOD", "KASAULI", "KASHIPUR", "KASHID", "KATRA", "KAUSANI", "KAZA", "KAZIRANGA", "KEDARNATH", "KHAJJIAR", "KHAJURAHO", "KHANDALA", "KHIMSAR", "KOCHIN", "KODAIKANAL", "KOLHAPUR", "KOLKATA", "KOLLAM", "KOTA", "KOTAGIRI", "KOTTAYAM", "KOVALAM", "KUFRI", "KUMBALGARH", "KULLU", "KUMARAKOM", "KUMBAKONAM", "KUMILY", "KURSEONG", "KUSHINAGAR", "LACHUNG", "LEH", "LAKSHADWEEP", "LONAVALA", "LOTHAL", "LUCKNOW", "LUDHIANA", "LUMBINI", "MADURAI", "MAHABALESHWAR", "MAHABALIPURAM", "MALAPPURAM", "MALPE", "MALSHEJ GHAT", "MALVAN", "MANALI", "MANDAVI", "MANDAWA", "MANESAR", "MARARRI", "MANDORMONI", "MANGALORE", "MANMAD", "MARCHULA", "MATHERAN", "MATHURA", "MCLEODGANJ", "MOHALI", "MOUNT ABU", "MORADABAD", "MORBI", "MUKTESHWAR", "MUMBAI", "MUNDRA", "MUNNAR", "MURUD JANJIRA", "MUSSOORIE", "MYSORE", "NADUKANI", "NAGAPATTINAM", "NAGARHOLE", "NAGAUR FORT", "NAGOTHANE", "NAGPUR", "NAHAN", "NAINITAL", "NALDHERA", "NANDED", "NAPNE", "NASIK", "NAVI MUMBAI", "NERAL", "NEW DELHI", "NILGIRI", "NOIDA", "OOTY", "ORCHHA", "OSIAN", "PACHMARHI", "PALAMPUR", "PALANPUR", "PALI", "PAHALGAM", "PALITANA", "PALLAKAD", "PANCHGANI", "PANCHKULA", "PANNA", "PANHALA", "PANVEL", "PANTNAGAR", "PARWANOO", "PATIALA", "PATHANKOT", "PATNA", "PATNITOP", "PELLING", "PENCH", "PHAGWARA", "PHALODI", "PINJORE", "PONDICHERRY", "POOVAR", "PORBANDAR", "PORT BLAIR", "POSHINA", "PRAGPUR", "PUNE", "PURI", "PUSKHAR", "PUTTAPARTHI", "RAI BAREILLY", "RAICHAK", "RAIPUR", "RAJASTHAN", "RAJGIR", "RAJKOT", "RAJPIPLA", "RAJSAMAND", "RAJAHMUNDRY", "RAMESHWARAM", "RAM NAGAR", "RAMGARH", "RANAKPUR", "RANCHI", "RANIKHET", "RANNY", "RANTHAMBORE", "RATNAGIRI", "RAVANGLA", "RISHIKESH", "RISHYAP", "ROHETGARH", "ROURKELA", "SAJAN", "SALEM", "SAPUTARA", "SASAN GIR", "SATTAL", "SAWAI MADHOPUR", "SAWANTWADI", "SECUNDERABAD", "SHILLONG", "SHIMLA", "SHIMLIPAL", "SHIRDI", "SHARAVANBELGOLA", "SHIVANASAMUDRA", "SIANA", "SILIGURI", "SILVASSA", "SIVAGANGA DISTRICT", "SOLAN", "SONAULI", "SRINAGAR", "SUNDERBAN", "SURAT", "TANJORE", "TAPOLA", "TARAPITH", "THANE", "THEKKADY", "THIRVANNAMALAI", "THIRUVANANTHAPURAM", "TIRUCHIRAPALLI", "TIRUPUR", "TIRUPATI", "THRISSUR", "UDAIPUR", "UDHAMPUR", "UDUPI", "UJJAIN", "UTTARKASHI", "VADODARA", "VAGAMON", "VARKALA", "VAPI", "VARANASI", "VELANKANNI", "VELLORE", "VERAVAL", "VIJAYAWADA", "VIKRAMGADH", "VISHAKAPATNAM", "WAYANAD", "WANKANER", "YAMUNOTRI", "YERCAUD", "YUKSOM"];
-
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("cityName"), countries);
 
 // Auto Complete - end

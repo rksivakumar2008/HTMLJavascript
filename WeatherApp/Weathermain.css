@@ -63,7 +63,7 @@ input[type=button] {
 /* my code */
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: lightsteelblue;  /* #f2f2f2 */
   padding: 20px;
 }
 
@@ -71,16 +71,16 @@ input[type=button] {
   width: 49%;
   display: inline-block; 
   font-size: 20px; 
-  padding:20px;  
+  padding:10px;  
   margin: 0px;
   text-align: right; 
 }
 
 .detailRowRight {
-  width: 50%;
+  width: 30%;
   display: inline-block; 
   font-size: 20px; 
-  padding:20px;  
+  padding:10px;  
   margin: 0px;
   text-align: left; 
 }
